@@ -61,7 +61,6 @@
 ## 📝 Latest Blog Posts
 
 <!-- BLOG-POST-LIST:START -->
-<!-- Blog posts will appear here if you set up the workflow -->
 <!-- BLOG-POST-LIST:END -->
 
 ---

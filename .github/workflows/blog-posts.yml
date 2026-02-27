@@ -1,0 +1,34 @@
+name: Blog Posts
+on:
+  schedule:
+    # 每 6 小时检查一次更新
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          # 替换为你的博客 RSS 源
+          feed_list: "https://dev.to/feed/sonyfe25cp,https://medium.com/feed/@sonyfe25cp"
+          # 或者使用个人博客
+          # feed_list: "https://yourblog.com/feed.xml"
+          
+          # 显示的文章数量
+          max_post_count: 5
+          
+          # 自定义格式
+          comment_tag_name: "BLOG-POST-LIST"
+          post_template: "- [TITLE] (URL) - DATE"
+          
+          # 是否显示描述
+          description_template: "   > DESCRIPTION"
+          
+          # 日期格式
+          date_format: "yyyy-mm-dd"
+          
+          # 时区
+          timezone: "Asia/Shanghai"
